@@ -1,12 +1,18 @@
 const calcular = document.getElementById('calcular')
 
 function imc () {
-    const nome = document.getElementById('nome').value
-    const altura = document.getElementById('altura').value
+    
+    var altura = parseFloat(document.getElementById('altura').value) //Converte para casa decimais 
+    if(altura > 3){
+        altura = altura /100
+    }    
+
+    const nome = document.getElementById('nome').value    
     const peso = document.getElementById('peso').value
     const resultado = document.getElementById('resultado') 
 
     if (nome !== '' && altura !== '' && peso !== '') {
+
         const valorIMC = (peso / (altura*altura)).toFixed(1)
 
         let classificacao = '',
@@ -27,9 +33,10 @@ function imc () {
         }
 
         resultado.textContent = `${nome} seu IMC é ${valorIMC} e você esta ${classificacao}`
-    }else {
+
+        }else {
         resultado.textContent = 'Preencha todos os campos !!!'
-    }
+        }
 }
 
 calcular.addEventListener('click', imc)
