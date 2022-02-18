@@ -9,7 +9,8 @@ function imc () {
     if (nome !== '' && altura !== '' && peso !== '') {
         const valorIMC = (peso / (altura*altura)).toFixed(1)
 
-        let classificacao = ''
+        let classificacao = '',
+        
 
         if (valorIMC < 18.5) {
             classificacao = 'abaixo do peso'
